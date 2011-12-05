@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="wizard_importprezzi" model="ir.ui.view">
+            <field name="name">Importa Prezzi </field>
+            <field name="model">import.prezzi</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Importa File Prezzi Speciali">
+                    <group col="4">
+                        <group colspan="4" >
+                            <field name='data'/>
+                            <newline />
+                            <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+                            <button icon="gtk-ok" name="import_prezzi_func" string="Importa" type="object"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+       <act_window name="Importa Prezzi"
+            res_model="import.prezzi"
+            src_model="product.pricelist.version"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="action_wizard_importprezzi"
+            view_id='wizard_importprezzi'/>
+    </data>
+</openerp>
